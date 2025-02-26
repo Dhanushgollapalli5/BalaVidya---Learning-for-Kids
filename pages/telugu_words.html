@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telugu Words - BalaVidya</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            text-align: center;
+        }
+        nav {
+            background: #ff6b6b;
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+            font-size: 24px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+        .content {
+            padding: 20px;
+            font-size: 20px;
+        }
+        h1, h2 {
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        #words-area {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        #words-area button {
+            font-size: 20px;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            animation: fadeIn 1s ease;
+            width: 250px;
+            text-align: center;
+        }
+        #words-area button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(to right, #ff6b6b, #ff8e8e);
+        }
+        footer {
+            margin-top: 30px;
+            padding: 15px;
+            background: #ff6b6b;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        const teluguWords = [
+            { word: "అగ్ని", meaning: "Fire", pronunciation: "Agni" },
+            { word: "ఆకాశం", meaning: "Sky", pronunciation: "Aakaasham" },
+            { word: "అమ్మ", meaning: "Mother", pronunciation: "Amma" },
+            { word: "ఇల్లు", meaning: "House", pronunciation: "Illu" },
+            { word: "ఈత", meaning: "Swimming", pronunciation: "Eetha" },
+            { word: "ఉడుము", meaning: "Monitor Lizard", pronunciation: "Udumu" },
+            { word: "ఎలుగు", meaning: "Bear", pronunciation: "Elugu" },
+            { word: "ఒంటె", meaning: "Camel", pronunciation: "Onte" },
+            { word: "కన్ను", meaning: "Eye", pronunciation: "Kannu" },
+            { word: "చక్కెర", meaning: "Sugar", pronunciation: "Chakkera" },
+            { word: "చెక్క", meaning: "Wood", pronunciation: "Chekka" },
+            { word: "చంద్రుడు", meaning: "Moon", pronunciation: "Chandrudu" },
+            { word: "చేప", meaning: "Fish", pronunciation: "Chepa" },
+            { word: "జలపాతం", meaning: "Waterfall", pronunciation: "Jalapatham" },
+            { word: "తల", meaning: "Head", pronunciation: "Tala" },
+            { word: "తల్లి", meaning: "Mother", pronunciation: "Thalli" },
+            { word: "తేనెటీగ", meaning: "Bee", pronunciation: "Tenetiga" },
+            { word: "నాన్న", meaning: "Father", pronunciation: "Nanna" },
+            { word: "నీరు", meaning: "Water", pronunciation: "Neeru" },
+            { word: "పక్షి", meaning: "Bird", pronunciation: "Pakshi" },
+            { word: "పుస్తకం", meaning: "Book", pronunciation: "Pustakam" },
+            { word: "పులి", meaning: "Tiger", pronunciation: "Puli" },
+            { word: "భాష", meaning: "Language", pronunciation: "Bhasha" },
+            { word: "ముక్కు", meaning: "Nose", pronunciation: "Mukku" },
+            { word: "రత్నం", meaning: "Gem", pronunciation: "Ratnam" },
+            { word: "సముద్రం", meaning: "Ocean", pronunciation: "Samudram" },
+            { word: "సింహం", meaning: "Lion", pronunciation: "Simham" },
+            { word: "స్నేహితుడు", meaning: "Friend", pronunciation: "Sneehitudu" },
+            { word: "సూర్యుడు", meaning: "Sun", pronunciation: "Sooryudu" },
+            { word: "తెలుగు", meaning: "Telugu", pronunciation: "Telugu" },
+            { word: "తండ్రి", meaning: "Father", pronunciation: "Thandri" },
+            { word: "విద్య", meaning: "Education", pronunciation: "Vidya" },
+            { word: "యంత్రం", meaning: "Machine", pronunciation: "Yantram" }
+        ];
+
+        function displayWords() {
+            let content = "<h3 class='animate__animated animate__fadeInDown'>Click a word to hear pronunciation:</h3><div id='words-area'>";
+            teluguWords.forEach(wordObj => {
+                content += `<button onclick='playSound("${wordObj.pronunciation}")' class='animate__animated animate__zoomIn'>${wordObj.word} - ${wordObj.meaning}</button>`;
+            });
+            content += "</div>";
+            document.getElementById("words-area").innerHTML = content;
+        }
+
+        function playSound(pronunciation) {
+            alert("Playing pronunciation: " + pronunciation);
+        }
+    </script>
+</head>
+<body onload="displayWords()">
+    <nav>
+        <h1 class="animate__animated animate__bounceIn">Telugu Words</h1>
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+    </nav>
+    <div class="content">
+        <h2 class="animate__animated animate__fadeIn">Learn Common Telugu Words</h2>
+        <p>Click on each word to hear pronunciation.</p>
+        <div id="words-area"></div>
+    </div>
+    <footer>
+        <p>&copy; 2025 BalaVidya. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

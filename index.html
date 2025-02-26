@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BalaVidya - Learning for Kids</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <h1 class="animate__animated animate__fadeInDown">BalaVidya - Learning for Kids</h1>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Grid Layout with 4 Items per Row -->
+        <div class="grid-container">
+            <div class="category" data-aos="fade-up">
+                <h2>Telugu Alphabets</h2>
+                <button onclick="location.href='pages/telugu_alphabets.html'">Learn More</button>
+            </div>
+            <div class="category" data-aos="fade-up" data-aos-delay="200">
+                <h2>Telugu Words</h2>
+                <button onclick="location.href='pages/telugu_words.html'">Learn More</button>
+            </div>
+            <div class="category" data-aos="fade-up" data-aos-delay="400">
+                <h2>Numbers</h2>
+                <button onclick="location.href='pages/numbers.html'">Learn More</button>
+            </div>
+            <div class="category" data-aos="fade-up" data-aos-delay="600">
+                <h2>Basic Math</h2>
+                <button onclick="location.href='pages/basic_math.html'">Learn More</button>
+            </div>
+            <div class="category" data-aos="fade-up" data-aos-delay="800">
+                <h2>Grammar</h2>
+                <button onclick="location.href='pages/grammar.html'">Learn More</button>
+            </div>
+            <div class="category" data-aos="fade-up" data-aos-delay="1000">
+                <h2>Learning Games</h2>
+                <button onclick="location.href='pages/learning_games.html'">Play Now</button>
+            </div>
+            <div class="category" data-aos="fade-up" data-aos-delay="1200">
+                <h2>Telugu Rhymes</h2>
+                <button onclick="location.href='pages/telugu_rhymes.html'">Listen</button>
+            </div>
+            <div class="category" data-aos="fade-up" data-aos-delay="1400">
+                <h2>English Rhymes</h2>
+                <button onclick="location.href='pages/english_rhymes.html'">Listen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section">
+        <h2>About BalaVidya</h2>
+        <p>
+            BalaVidya is an innovative learning platform designed to make education fun, engaging, and accessible for kids. 
+            Our mission is to provide high-quality educational content that helps children learn and grow in a joyful environment.
+        </p>
+        <h3>Our Aims</h3>
+        <ul>
+            <li>To make learning enjoyable and interactive for kids.</li>
+            <li>To provide a wide range of educational resources, including alphabets, numbers, math, grammar, and rhymes.</li>
+            <li>To foster creativity and curiosity in young minds through games and activities.</li>
+            <li>To support parents and teachers in nurturing children's learning journey.</li>
+        </ul>
+        <h3>Why Choose BalaVidya?</h3>
+        <p>
+            At BalaVidya, we believe that every child deserves the best start in life. Our platform is designed to:
+        </p>
+        <ul>
+            <li>Offer easy-to-understand and engaging content.</li>
+            <li>Provide a safe and child-friendly learning environment.</li>
+            <li>Encourage self-paced learning and exploration.</li>
+            <li>Make education accessible to all, regardless of location or background.</li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 BalaVidya. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000, // Animation duration (in milliseconds)
+            offset: 120, // Offset (in pixels) from the top of the page
+            easing: 'ease-in-out', // Easing function
+            once: true, // Whether animations should happen only once
+        });
+    </script>
+</body>
+</html>

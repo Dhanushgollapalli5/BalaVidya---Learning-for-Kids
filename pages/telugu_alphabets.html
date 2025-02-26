@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telugu Alphabets & Guninthalu - BalaVidya</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            text-align: center;
+        }
+        nav {
+            background: #ff6b6b;
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+            font-size: 24px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+        .content {
+            padding: 20px;
+            font-size: 20px;
+        }
+        h1, h2 {
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        #alphabet-area, #guninthalu-area {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 24px;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            animation: fadeIn 1s ease;
+        }
+        button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(to right, #ff6b6b, #ff8e8e);
+        }
+        footer {
+            margin-top: 30px;
+            padding: 15px;
+            background: #ff6b6b;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        const teluguAlphabets = [
+            "అ", "ఆ", "ఇ", "ఈ", "ఉ", "ఊ", "ఋ", "ౠ", "ఎ", "ఏ", "ఐ", "ఒ", "ఓ", "ఔ", "అం", "అః",
+            "క", "ఖ", "గ", "ఘ", "ఙ", "చ", "ఛ", "జ", "ఝ", "ఞ", "ట", "ఠ", "డ", "ఢ", "ణ",
+            "త", "థ", "ద", "ధ", "న", "ప", "ఫ", "బ", "భ", "మ", "య", "ర", "ల", "వ", "శ", "ష", "స", "హ", "ళ", "క్ష", "ఱ"
+        ];
+
+        const teluguGuninthalu = [
+            "కా", "కి", "కీ", "కు", "కూ", "కె", "కే", "కై", "కొ", "కో", "కౌ",
+            "ఖా", "ఖి", "ఖీ", "ఖు", "ఖూ", "ఖె", "ఖే", "ఖై", "ఖొ", "ఖో", "ఖౌ",
+            "గా", "గి", "గీ", "గు", "గూ", "గె", "గే", "గై", "గొ", "గో", "గౌ",
+            "చా", "చి", "చీ", "చు", "చూ", "చె", "చే", "చై", "చొ", "చో", "చౌ",
+            "జా", "జి", "జీ", "జు", "జూ", "జె", "జే", "జై", "జొ", "జో", "జౌ",
+            "టా", "టి", "టీ", "టు", "టూ", "టె", "టే", "టై", "టొ", "టో", "టౌ",
+            "డా", "డి", "డీ", "డు", "డూ", "డె", "డే", "డై", "డొ", "డో", "డౌ"
+        ];
+
+        function displayAlphabets() {
+            let content = "<h3 class='animate__animated animate__fadeInDown'>Telugu Alphabets:</h3>";
+            teluguAlphabets.forEach(alpha => {
+                content += `<button class='animate__animated animate__zoomIn'>${alpha}</button> `;
+            });
+            document.getElementById("alphabet-area").innerHTML = content;
+        }
+
+        function displayGuninthalu() {
+            let content = "<h3 class='animate__animated animate__fadeInDown'>Telugu Guninthalu:</h3>";
+            teluguGuninthalu.forEach(gunintham => {
+                content += `<button class='animate__animated animate__zoomIn'>${gunintham}</button> `;
+            });
+            document.getElementById("guninthalu-area").innerHTML = content;
+        }
+    </script>
+</head>
+<body onload="displayAlphabets(); displayGuninthalu();">
+    <nav>
+        <h1 class="animate__animated animate__bounceIn">Telugu Alphabets & Guninthalu</h1>
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+    </nav>
+    <div class="content">
+        <h2 class="animate__animated animate__fadeIn">Learn Telugu Alphabets</h2>
+        <div id="alphabet-area"></div>
+        <h2 class="animate__animated animate__fadeIn">Learn Telugu Guninthalu</h2>
+        <div id="guninthalu-area"></div>
+    </div>
+    <footer>
+        <p>&copy; 2025 BalaVidya. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

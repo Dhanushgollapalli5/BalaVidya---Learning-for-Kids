@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar - BalaVidya</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            text-align: center;
+            color: white;
+        }
+        nav {
+            background: #142850;
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+        .content {
+            padding: 20px;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        h1, h2 {
+            color: #f8f9fa;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        button {
+            font-size: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            animation: fadeIn 1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 250px;
+        }
+        button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            color: black;
+        }
+        footer {
+            margin-top: 30px;
+            padding: 15px;
+            background: #142850;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        const grammarQuestions = [
+            { question: "Identify the noun in this sentence: 'The cat sleeps on the mat.'", options: ["sleeps", "mat", "on", "the"], answer: "mat" },
+            { question: "Choose the correct verb: 'She ___ to the market.'", options: ["go", "goes", "gone", "going"], answer: "goes" },
+            { question: "Which is an adjective?", options: ["run", "beautiful", "quickly", "apple"], answer: "beautiful" },
+            { question: "Pick the correct pronoun: '___ love reading books.'", options: ["He", "She", "They", "It"], answer: "They" },
+            { question: "Select the correct preposition: 'The book is ___ the table.'", options: ["on", "in", "under", "beside"], answer: "on" }
+        ];
+        
+        function loadQuestion() {
+            let q = grammarQuestions[Math.floor(Math.random() * grammarQuestions.length)];
+            let optionsHtml = q.options.map(opt => `<button onclick='checkAnswer("${opt}", "${q.answer}")'><i class="fas fa-check-circle"></i> ${opt}</button>`).join(" ");
+            document.getElementById("grammar-question").innerHTML = `<h3>${q.question}</h3><p>Choose the correct option:</p><div class='options'>` + optionsHtml + "</div>";
+        }
+        
+        function checkAnswer(selected, correct) {
+            if (selected === correct) {
+                document.body.style.backgroundColor = "green";
+                alert("🎉 Correct Answer!");
+                setTimeout(() => {
+                    document.body.style.backgroundColor = "white";
+                    loadQuestion();
+                }, 2000);
+            } else {
+                document.body.style.backgroundColor = "red";
+                alert(`❌ Wrong Answer! The correct answer is: ${correct}`);
+                setTimeout(() => { document.body.style.backgroundColor = "white"; }, 3000);
+            }
+        }
+    </script>
+</head>
+<body onload="loadQuestion()">
+    <nav>
+        <i class="fas fa-book"></i>
+        <h1>Grammar</h1>
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+    </nav>
+    <div class="content">
+        <h2>Grammar Quiz</h2>
+        <p>Test your grammar knowledge by answering the following question:</p>
+        <div id="grammar-question"></div>
+        
+        <h2>Grammar Topics</h2>
+        <ul>
+            <li><i class="fas fa-font"></i> Nouns and Pronouns</li>
+            <li><i class="fas fa-pencil-alt"></i> Verbs and Tenses</li>
+            <li><i class="fas fa-ad"></i> Adjectives and Adverbs</li>
+            <li><i class="fas fa-link"></i> Prepositions and Conjunctions</li>
+            <li><i class="fas fa-file-alt"></i> Articles and Sentence Structure</li>
+            <li><i class="fas fa-comments"></i> Direct and Indirect Speech</li>
+            <li><i class="fas fa-random"></i> Active and Passive Voice</li>
+            <li><i class="fas fa-brain"></i> Idioms and Phrases</li>
+            <li><i class="fas fa-exchange-alt"></i> Sentence Transformation</li>
+            <li><i class="fas fa-chart-line"></i> Comparative and Superlative Forms</li>
+            <li><i class="fas fa-code-branch"></i> Conditionals (If Clauses)</li>
+        </ul>
+    </div>
+    <footer>
+        <p>&copy; 2025 BalaVidya. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

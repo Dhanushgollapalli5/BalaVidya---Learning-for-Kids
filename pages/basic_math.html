@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Math - BalaVidya</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            text-align: center;
+            color: white;
+        }
+        nav {
+            background: #142850;
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+        .content {
+            padding: 20px;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        h1, h2 {
+            color: #f8f9fa;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        button {
+            font-size: 20px;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            animation: fadeIn 1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            color: black;
+        }
+        footer {
+            margin-top: 30px;
+            padding: 15px;
+            background: #142850;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        function generateQuestion() {
+            const num1 = Math.floor(Math.random() * 100) + 1;
+            const num2 = Math.floor(Math.random() * 100) + 1;
+            const operators = ["+", "-", "×", "÷", "%", "^"];
+            const operator = operators[Math.floor(Math.random() * operators.length)];
+            let correctAnswer;
+
+            if (operator === "+") correctAnswer = num1 + num2;
+            else if (operator === "-") correctAnswer = num1 - num2;
+            else if (operator === "×") correctAnswer = num1 * num2;
+            else if (operator === "%") correctAnswer = num1 % num2;
+            else if (operator === "^") correctAnswer = Math.pow(num1, num2);
+            else correctAnswer = (num1 / num2).toFixed(2);
+
+            document.getElementById("math-question").innerHTML = `${num1} ${operator} ${num2} = ?`;
+            document.getElementById("math-question").dataset.answer = correctAnswer;
+        }
+
+        function checkAnswer() {
+            const userAnswer = document.getElementById("math-answer").value;
+            const correctAnswer = document.getElementById("math-question").dataset.answer;
+            if (parseFloat(userAnswer) == correctAnswer) {
+                document.body.style.backgroundColor = "green";
+                alert("🎉 Correct Answer!");
+            } else {
+                document.body.style.backgroundColor = "red";
+                alert(`❌ Wrong Answer! The correct answer is ${correctAnswer}. Try another question.`);
+            }
+            setTimeout(() => { document.body.style.backgroundColor = "white"; }, 3000);
+        }
+    </script>
+</head>
+<body onload="generateQuestion()">
+    <nav>
+        <i class="fas fa-calculator"></i>
+        <h1>Basic Math</h1>
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+    </nav>
+    <div class="content">
+        <h2>Practice Basic Math</h2>
+        <p>Try solving the following math problem:</p>
+        <h3 id="math-question"></h3>
+        <input type="number" id="math-answer" placeholder="Enter your answer">
+        <button onclick="checkAnswer()"><i class="fas fa-check"></i> Submit</button>
+        <button onclick="generateQuestion()"><i class="fas fa-sync-alt"></i> Next Question</button>
+        
+        <h2>Advanced Math Challenges</h2>
+        <ul>
+            <li><i class="fas fa-square-root-alt"></i> Identify Prime Numbers</li>
+            <li><i class="fas fa-calculator"></i> Find the Greatest Common Factor (GCF)</li>
+            <li><i class="fas fa-calculator"></i> Find the Least Common Multiple (LCM)</li>
+            <li><i class="fas fa-divide"></i> Convert Fractions to Decimals</li>
+            <li><i class="fas fa-percentage"></i> Calculate Percentage Discounts</li>
+            <li><i class="fas fa-sort-numeric-up"></i> Work with Exponents and Powers</li>
+            <li><i class="fas fa-square-root-alt"></i> Understand Square Roots and Cube Roots</li>
+            <li><i class="fas fa-equals"></i> Practice Order of Operations (PEMDAS)</li>
+        </ul>
+        
+        <h2>Interactive Math Quiz</h2>
+        <p>Test your skills with a quick quiz!</p>
+        <button onclick="generateQuestion()"><i class="fas fa-play"></i> Start Quiz</button>
+    </div>
+    <footer>
+        <p>&copy; 2025 BalaVidya. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

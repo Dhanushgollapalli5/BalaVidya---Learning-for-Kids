@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telugu Numbers - BalaVidya</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            text-align: center;
+        }
+        nav {
+            background: #ff6b6b;
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+            font-size: 24px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+        .content {
+            padding: 20px;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        h1, h2 {
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .numbers-area {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        button {
+            font-size: 20px;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            animation: fadeIn 1s ease;
+            width: 200px;
+            text-align: center;
+        }
+        button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(to right, #ff6b6b, #ff8e8e);
+        }
+        footer {
+            margin-top: 30px;
+            padding: 15px;
+            background: #ff6b6b;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        const numbers = [];
+        const teluguNumbers = {
+            1: "ఒకటి", 2: "రెండు", 3: "మూడు", 4: "నాలుగు", 5: "ఐదు", 
+            6: "ఆరు", 7: "ఏడు", 8: "ఎనిమిది", 9: "తొమ్మిది", 10: "పది",
+            20: "ఇరవై", 30: "ముప్పై", 40: "నలభై", 50: "యాభై", 60: "అరవై", 
+            70: "డెబ్బై", 80: "ఎనభై", 90: "తొంభై", 100: "వంద"
+        };
+        
+        for (let i = 1; i <= 100; i++) {
+            let telugu = teluguNumbers[i] || (i > 10 ? `${teluguNumbers[Math.floor(i / 10) * 10]} ${teluguNumbers[i % 10] || ''}`.trim() : i);
+            numbers.push({ number: i, telugu: telugu, pronunciation: `Number ${i}` });
+        }
+
+        function displayNumbers() {
+            let content = "<h3>Telugu Numbers</h3>";
+            numbers.forEach(numObj => {
+                content += `<button onclick='playSound("${numObj.pronunciation}")'>${numObj.number} - ${numObj.telugu}</button>`;
+            });
+            document.getElementById("numbers-area").innerHTML = content;
+        }
+
+        function playSound(pronunciation) {
+            alert("Playing pronunciation: " + pronunciation);
+        }
+    </script>
+</head>
+<body onload="displayNumbers();">
+    <nav>
+        <h1>Telugu Numbers</h1>
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+    </nav>
+    <div class="content">
+        <div id="numbers-area" class="numbers-area"></div>
+    </div>
+    <footer>
+        <p>&copy; 2025 BalaVidya. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
